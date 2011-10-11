@@ -4,4 +4,4 @@ all:
 	latex $(file).tex
 	dvips $(file).dvi
 	ps2pdf $(file).ps
-	evince $(file).pdf
+	xdg-open $(file).pdf
