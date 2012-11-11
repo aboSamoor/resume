@@ -5,6 +5,7 @@
 %2-http://stefano.italians.nl/archives/category/latex
 \documentclass[a4paper, oneside, final]{scrartcl}
 \usepackage{soul}
+%\usepackage{marvosym}
 %\usepackage{url}
 \usepackage[urlbordercolor={1 1 1}]{hyperref}
 \usepackage{scrpage2}
@@ -16,6 +17,8 @@
 \usepackage{paralist}
 \usepackage{multicol}
 \usepackage{longtable}
+\usepackage{ifthen}
+
 %\usepackage{textcomp}
 %\usepackage{fontspec}
 %section title characterstics
@@ -24,8 +27,100 @@
 \titleformat{\section}{\bfseries\large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{3pt}{3pt}
 
+
+% symbols
+\newcommand*{\marvosymbol}[1]{{\fontfamily{mvs}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont\char#1}}
+
+\newcommand*{\mobilesymbol}{\marvosymbol{72}~}
+\newcommand*{\phonesymbol}{\marvosymbol{84}~}
+\newcommand*{\faxsymbol}{\marvosymbol{117}~}
+\newcommand*{\emailsymbol}{\marvosymbol{66}~}
+\newcommand*{\homepagesymbol}{{\Large\marvosymbol{205}}~}
+\newcommand*{\addresssymbol}{}
+
+
+%-------------------------------------------------------------------------------
+%                resume style definition
+%-------------------------------------------------------------------------------
+% fonts
+\newcommand*{\namefont}{\fontsize{34}{36}\mdseries\upshape}
+\renewcommand*{\titlefont}{\LARGE\mdseries\slshape}
+\newcommand*{\addressfont}{\small\mdseries\slshape}
+\newcommand*{\quotefont}{\large\slshape}
+\newcommand*{\sectionfont}{\Large\mdseries\upshape}
+\newcommand*{\subsectionfont}{\large\mdseries\upshape}
+\newcommand*{\hintfont}{}
+
+% styles
+\newcommand*{\namestyle}[1]{{\namefont\textcolor{color0}{#1}}}
+\newcommand*{\titlestyle}[1]{{\titlefont\textcolor{color2}{#1}}}
+\newcommand*{\addressstyle}[1]{{\addressfont\textcolor{color1}{#1}}}
+\newcommand*{\quotestyle}[1]{{\quotefont\textcolor{color1}{#1}}}
+\newcommand*{\sectionstyle}[1]{{\sectionfont\textcolor{color1}{#1}}}
+\newcommand*{\subsectionstyle}[1]{{\subsectionfont\textcolor{color1}{#1}}}
+\newcommand*{\hintstyle}[1]{{\hintfont\textcolor{color0}{#1}}}
+
+% lengths
+\newlength{\quotewidth}
+\newlength{\hintscolumnwidth}
+\setlength{\hintscolumnwidth}{0.175\textwidth}
+\newlength{\separatorcolumnwidth}
+\setlength{\separatorcolumnwidth}{0.025\textwidth}
+\newlength{\maincolumnwidth}
+\newlength{\doubleitemmaincolumnwidth}
+\newlength{\listitemsymbolwidth}
+\settowidth{\listitemsymbolwidth}{listitemsymbol}
+\newlength{\listitemmaincolumnwidth}
+\newlength{\listdoubleitemmaincolumnwidth}
+
+
+  \setlength{\quotewidth}{0.65\textwidth}%
+  % main lenghts
+  \setlength{\maincolumnwidth}{\textwidth-\separatorcolumnwidth-\hintscolumnwidth}%
+  % listitem lengths
+  \setlength{\listitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth}%
+  % doubleitem lengths
+  \setlength{\doubleitemmaincolumnwidth}{\maincolumnwidth-\hintscolumnwidth-\separatorcolumnwidth-\separatorcolumnwidth}%
+  \setlength{\doubleitemmaincolumnwidth}{0.5\doubleitemmaincolumnwidth}%
+  % listdoubleitem lengths
+  \setlength{\listdoubleitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth-\separatorcolumnwidth-\listitemsymbolwidth}%
+  \setlength{\listdoubleitemmaincolumnwidth}{0.5\listdoubleitemmaincolumnwidth}%
+  % fancyhdr lengths
+  \newcommand{\headwidth}{\textwidth}%
+  % regular lengths
+  
+  
+\newcommand*{\cvitem}[3][.25em]{}
+\newcommand*{\cvline}[2]{\cvitem{#1}{#2}}
+
+
+
+
 \pagestyle{scrheadings}
 \renewcommand{\headfont}{\normalfont\rmfamily\scshape}
+\newcommand{\cvdoublecolumn}[2]{%
+  \cvline[]{}{%
+    \begin{minipage}[t]{0.5\textwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{0.5\textwidth}#2\end{minipage}%
+    }%
+}
+
+% usage: \cvreference{name}{address line 1}{address line 2}{address line 3}{address line 4}{e-mail address}{phone number}
+% Everything but the name is optional
+% If \addresssymbol, \emailsymbol or \phonesymbol are specified, they will be used.
+% (Per default, \addresssymbol isn't specified, the other two are specified.)
+% If you don't like the symbols, remove them from the following code, including the tilde ~ (space).
+
+\newcommand{\cvreference}[7]{%
+    \textbf{#1}\newline% Name
+    \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+    \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+    \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+    \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+    \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+    \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}}
+
 \newcommand{\twidthb}{12.65cm}
 \newcommand{\twidtha}{3.0cm}
       % add the symbols for email and phone contact data
@@ -71,14 +166,14 @@ Math, Natural Language Processing.  \\
 \\
 
 
- \raggedleft{\textsc{Feb 09}} & \textbf{BSc. in Computer Engineering},
+ \raggedleft{\textsc{Sep 04 - Feb 09}} & \textbf{BSc. in Computer Engineering},
 \emph{University of Jordan}, Amman, Jordan. \\
 
 & \normalsize \textsc{Gpa}: 3.79/4.0, ranked 4\textsuperscript{th} of a 128-student class. \\
  \multicolumn{2}{c}{}\ %this clears the space between two jobs
 \\
 
-\raggedleft{\textsc{Jun 04}} &  \textbf{Secondary Education Diploma}, \emph{Tafila Secondary School}, Tafila, Jordan. \\
+\raggedleft{\textsc{Sep 02 - Jun 04}} &  \textbf{Secondary Education Diploma}, \emph{Tafila Secondary School}, Tafila, Jordan. \\
  &  Percentage average: 97.4\%, 99.9\textsuperscript{th} percentile nationwide.\\
 
 \end{tabular}
@@ -140,17 +235,17 @@ Non-native Speakers}.\\ & \scriptsize{Rami Al-Rfou'. ArXiv e-prints, Computation
 \begin{tabular}{p{\twidtha} p{\twidthb}}
 
 \raggedleft{\textsc{ Aug 10}} & \textbf{Stony Brook Computer Science Fellowship}.\\
-\raggedleft{\textsc{ Jul 09}} & \textbf{IEEE Student Branch Membership Growth Award for Region 8}.\\
+\\ \raggedleft{\textsc{ Jul 09}} & \textbf{IEEE Student Branch Membership Growth Award for Region 8}.\\
 \raggedleft{\textsc{ Apr 09}} & \textbf{IEEE Darrel Chong Student Activity Bronze Award}.\\
 
-\\       \raggedleft{\textsc{Oct 04}} & \textbf{The Ministry of Higher Education Scholarship}\\
-        & \footnotesize{Received for my excellence in the Secondary Diploma exams. The scholarship covered my college study tuitions.}
+\\ \raggedleft{\textsc{Oct 04}} & \textbf{The Ministry of Higher Education Scholarship}\\
+        & % \footnotesize{Received for my excellence in the Secondary Diploma exams. The scholarship covered my college study tuitions.}
 
 
    \\    \raggedleft{ \textsc{May 02}} & \textbf{The National Mathematics/Physics Olympiad}\\
             &\footnotesize{Scored the first in both Mathematics and Physics National Olympiads in the southern region of Jordan and 7\textsuperscript{th} nationwide.}
          \end{tabular}
-\\
+
 
 \section{Achievements}
 \begin{tabular}{p{\twidtha}p{\twidthb}}
@@ -158,7 +253,7 @@ Non-native Speakers}.\\ & \scriptsize{Rami Al-Rfou'. ArXiv e-prints, Computation
 \\ \raggedleft{\textsc{Feb 09} } & Received excellent mark for my graduation project, ``TCP performance over IEEE 802.11 wireless links''. During which I made a thorough review and simulation, using ns-2, to study the complexity and performance of proposed protocols in literature.\\
 \\ \raggedleft{\textsc{Jun 08} } & Ranked second in the National Technology Parade under the Open Theme for designing and implementing a low cost portable digital oscilloscope. The project was invited for the Parade's exhibition.\\ & \\
 \end{tabular}
-\\
+
 
 \section{Voluntary Work}
 \begin{tabular}{p{\twidtha}p{\twidthb}}
@@ -166,10 +261,11 @@ Non-native Speakers}.\\ & \scriptsize{Rami Al-Rfou'. ArXiv e-prints, Computation
     \raggedleft{\textsc{Oct 07 - Sep 08}}  & \textbf{Chairman}  \\
                               & \footnotesize{\parbox{\twidthb}{
                                 $\bullet$ Organized the National Technology Parade.\\
-                                $\bullet$ Raised fund to the branch and created connections with the local companies.\\
+%                                $\bullet$ Raised fund to the branch and created connections with the local companies.\\
                                 $\bullet$ Participated in the IEEE Region 8 Student Branch and GOLD Congress.\\
-                                $\bullet$ Constructed a new website for the branch (\url{ju-ieee.com}).\\
-                                $\bullet$ As a mentor I helped and adviced the next branch committee.}}\\
+                                $\bullet$ Constructed a new website for the branch (\url{ju-ieee.com}).}}\\
+%                                $\bullet$ As a mentor I helped and adviced the next branch committee.
+
 
 \\ \textsc{Jan - June 08}  & \textbf{Designer and Administrator}, \emph{Theoretical Physics Lab}, Uni of Jordan. \\
                                & \footnotesize{\parbox{\twidthb}{
@@ -191,25 +287,40 @@ Languages &
 
 $\bullet$ Arabic: Native \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,
 $\bullet$ English: Fluent
+\\
+\\
+Hobbies & 
 
+$\bullet$ Hiking \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,
+$\bullet$ Cooking
+\\
 \\
 Programming & Proficient in programming in C/C++, Python, MATLAB and Assembly (x86, HC11, PIC16).
 \\
 \\
 Computer Skills & Experienced in building and maintaining networks infrastructure and managing Linux systems.
-\\ &
+\\ & 
+
 \end{tabular}
 
-\section{Hobbies}
-%\begin{tabular}{l}
-\vspace{-14pt}
-\begin{multicols}{2}
-        \begin{compactitem}
-\item Hiking.
-\item Cooking.
-            \end{compactitem} 
-\end{multicols}
-%\end{tabular}
+\section{References}
+
+\cvdoublecolumn{\cvreference{Steven Skiena}
+    {Department of Computer Science}
+    {Stony Brook University}
+    {}
+    {Stony Brook, NY 11794}
+    {skiena@cs.stonybrook.edu}
+    {631-632-9026}
+    }
+    {\cvreference{Yejin Choi}
+    {Department of Computer Science}
+    {Stony Brook University}
+    {}
+    {Stony Brook, NY 11794}
+    {ychoi@cs.stonybrook.edu}
+    {631-632-8457}
+    }
 
 
-      \end{document}
+\end{document}
