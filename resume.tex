@@ -5,7 +5,8 @@
 %2-http://stefano.italians.nl/archives/category/latex
 \documentclass[a4paper, oneside, final]{scrartcl}
 \usepackage{soul}
-\usepackage{url}
+%\usepackage{url}
+\usepackage[urlbordercolor={1 1 1}]{hyperref}
 \usepackage{scrpage2}
 \usepackage{savetrees}
 \usepackage{titlesec}
@@ -29,14 +30,14 @@
 \newcommand{\twidtha}{3.0cm}
       % add the symbols for email and phone contact data
 
-      \lofoot{{\Large\Email} ralrfou@cs.stonybrook.edu}
-      \rofoot{{\Large\Telefon} + 1 631 371 3165}
+      \lofoot{{\Large\Email}\href{mailto:ralrfou@cs.stonybrook.edu}{ralrfou@cs.stonybrook.edu}}
+      \rofoot{{\Large\Telefon} 631 371 3165}
 
       \begin{document}
       \begin{center}
       \textsc{\Huge{\so{Rami Al-Rfou'}}}\\
 
-      \so{ralrfou@cs.stonybrook.edu} \,\,\,\,\,\,\,\,\,\, \url{linkedin.com/in/ramieid} \\
+      \href{mailto:ralrfou@cs.stonybrook.edu}{\so{ralrfou@cs.stonybrook.edu}} \,\,\,\,\,\,\,\,\,\, \url{www.cs.stonybrook.edu/~ralrfou} \\
        \so{+631 371 3165}
             \end{center}
 \section{Personal Info}
@@ -122,16 +123,17 @@ Blogs Analysis lab under the supervision of Prof. Steven Skiena developing a mul
 \begin{tabular}{p{\twidtha} p{\twidthb}}
 
 \raggedleft{\textsc{Dec 12}} & \textbf{SpeedRead: A Fast Named Entity
-Recognition Pipeline}.\\ & \scriptsize{COLING (oral)}\\
+Recognition Pipeline}.\\ & \scriptsize{Rami Al-Rfou' and Steven Skiena. \textit{International Conference on Computational Linguistics (COLING 2012)}, IIT Bombay, Mumbai, India. }\\
+
 \end{tabular}
 \\ 
 
 \section{Projects}
 \begin{tabular}{p{\twidtha} p{\twidthb}}
 \raggedleft{\textsc{ Aug 12}} & \textbf{Detecting English Writing Styles For
-Non-native Speakers}.\\ & \scriptsize{http://arxiv.org/abs/1211.0498}\\
+Non-native Speakers}.\\ & \scriptsize{Rami Al-Rfou'. ArXiv e-prints, Computation and Language section. \url{http://arxiv.org/abs/1211.0498}}\\
 \raggedleft{\textsc{ Jan 11}} & \textbf{TrackMeNot-so-good-after-all}.\\ &
-\scriptsize{http://arxiv.org/abs/1211.0320}\\
+\scriptsize{Rami Al-Rfou', William Jannen, and Nikhil Patrwardhan. ArXiv e-prints, Information Retrieval \& Privacy sections. \url{http://arxiv.org/abs/1211.0320}}\\
 \end{tabular}
 
 \section{Honors and Awards}
