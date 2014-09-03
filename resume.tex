@@ -18,6 +18,7 @@
 \usepackage{multicol}
 \usepackage{longtable}
 \usepackage{ifthen}
+\usepackage{hyperref}
 
 %\usepackage{textcomp}
 %\usepackage{fontspec}
@@ -131,22 +132,13 @@
       \begin{document}
       \begin{center}
       \textsc{\Huge{\so{Rami Al-Rfou'}}}\\
-
-      \href{mailto:ralrfou@cs.stonybrook.edu}{\so{ralrfou@cs.stonybrook.edu}} \,\,\,\,\,\,\,\,\,\, \url{www.cs.stonybrook.edu/~ralrfou} \\
-       \so{+631 371 3165}
-            \end{center}
-\section{Personal Info}
-\vspace{-14pt}
-\begin{compactitem}
-\begin{multicols}{2}
-      \item Date of Birth: September 12\textsuperscript{th}, 1986 
-      \item Nationality: Jordanian
-      \item Student Visa: F1
-	\item 
- \begin{tabular}[t]{l}350 Circle Rd. Stony Brook,  NY 11790 \end{tabular}
-\end{multicols}
-\end{compactitem}
-\vspace{-4pt}
+      
+      \begin{tabular}{lll}
+      &\\
+      \href{mailto:ralrfou@cs.stonybrook.edu}{\so{ralrfou@cs.stonybrook.edu}} && \so{+1 631 371 3165}\\
+      \url{www.cs.stonybrook.edu/~ralrfou} && 350 Circle Rd. Stony Brook,  NY 11790 \\
+      \end{tabular}
+      \end{center}
 
 \section{Education}
 %\noindent
@@ -172,12 +164,10 @@ Math, Natural Language Processing.  \\
 \raggedleft{\textsc{Sep 02 - Jun 04}} &  \textbf{Secondary Education Diploma}, \emph{Tafila Secondary School}, Tafila, Jordan. \\
  &  Percentage average: 97.4\%, 99.9\textsuperscript{th} percentile nationwide.\\
 
-\end{tabular}
+\end{tabular}\\
 
-\section{Experiences}
-%\noindent
-
-\begin{tabular}{rm{\twidthb}}
+\section{Research Experience}
+\begin{tabular}{p{\twidtha}p{\twidthb}}
 \textsc{Sep 11} - \emph{present}  & \textbf{Research Assistant}, \emph{Stony Brook University}, Stony Brook, NY. \\
                     & \footnotesize{\parbox{\twidthb}{Working in the News and
 Blogs Analysis lab under the supervision of Prof. Steven Skiena developing a multilingual news sentimental analysis engine.}}
@@ -187,10 +177,15 @@ Blogs Analysis lab under the supervision of Prof. Steven Skiena developing a mul
 
 
 \\\textsc{May - Aug 12}  & \textbf{Research Intern}, \emph{Google}, Mountain View, CA. \\                    
- & \footnotesize{\parbox{\twidthb}{Designed a multilingual coreference resolution system.}}
+ & \footnotesize{\parbox{\twidthb}{Designed a multilingual coreference resolution system with Jay Ponte.}}
+\end{tabular}
 
-\\\textsc{Jun - Aug 11}  & \textbf{Software Engineering Intern}, \emph{Google}, Mountain View, CA. \\
-						& \footnotesize{\parbox{\twidthb}{Worked on visualizing Google network infrastructure.}}
+
+\section{Teaching Experience}
+%\noindent
+
+\begin{tabular}{p{\twidtha}p{\twidthb}}
+
 
 \\\textsc{Aug 10 - May 11}  & \textbf{Teaching Assistant}, \emph{Stony Brook University}, Stony Brook, NY. \\
                     & \footnotesize{\parbox{\twidthb}{
@@ -201,15 +196,27 @@ Blogs Analysis lab under the supervision of Prof. Steven Skiena developing a mul
 
 \\\textsc{Feb 09 - July 10}  & \textbf{Lab Instructor}, \emph{Middle East Technical University}, TRNC. \\
                     & \footnotesize{\parbox{\twidthb}{
-                     Designed new experiments for the Microprocessors lab (EE347) and wrote new manual for the Electricity and Magnetism Lab.}}   
+                     Designed new experiments for the Microprocessors lab (EE347) and wrote new manual for the Electricity and Magnetism Lab.}}
+\end{tabular}\\
+
+
+\section{Development Experience}
+%\noindent
+
+\begin{tabular}{p{\twidtha}p{\twidthb}}
+\\\textsc{Jun - Aug 11}  & \textbf{Software Engineering Intern}, \emph{Google}, Mountain View, CA. \\
+						& \footnotesize{\parbox{\twidthb}{Worked on visualizing Google network infrastructure.}}
 
    \\ \textsc{Apr - Dec 08}  & \textbf{Software Developer}, \emph{Jovision}, Amman, Jordan. \\
                          & \footnotesize{Developed new image processing fault detection algorithms for the JoInspector software using C\# and MATLAB, the software is used in tire factories QA departments.}
 
 \end{tabular}
 
+
 \section{Publications}
-\begin{tabular}{p{\twidtha} p{\twidthb}}
+\begin{tabular}{ll}
+
+\raggedleft{\textsc{Aug 14}} & \textbf{DeepWalk: Online Learning of Social Representations}.\\ & \scriptsize{Bryan Perozzi, Rami Al-Rfou', and Steven Skiena. \textit{20th ACM SIGKDD 2014}, NYC, USA.}\\
 
 \raggedleft{\textsc{Mar 14}} & \textbf{Inducing Language Networks from
 Continuous Space Word Representations}.\\ & \scriptsize{Bryan Perozzi, Rami Al-Rfou', Vivek Kulkarni and Steven Skiena. \textit{5th Workshop on Complex Networks}, Bologna, Italy.}\\
@@ -223,6 +230,29 @@ Recognition Pipeline}.\\ & \scriptsize{Rami Al-Rfou' and Steven Skiena. \textit{
 \end{tabular}
 \\ 
 
+\section{Technical Reports}
+\begin{tabular}{p{\twidtha} p{\twidthb}}
+
+\raggedleft{\textsc{Apr 14}} & \textbf{Polyglot-NER: Massive Multilingual Named Entity Recognition}.\\ & \scriptsize{Rami Al-Rfou', Vivek Kulkarni, Bryan Perozzi, and Steven Skiena.}\\
+
+
+\raggedleft{\textsc{Apr 12}} & \textbf{Detecting English Writing Styles For Non-native Speakers}.\\ & \scriptsize{Rami Al-Rfou'}\\
+
+
+\end{tabular}
+
+\section{Service}
+
+\begin{tabular}{p{\twidtha} p{\twidthb}}
+Reviewer & COLING 2014, EMNLP 2014.
+\end{tabular}\\
+
+\section{Open Source Software}
+\begin{tabular}{lll}
+\texttt{polyglot} & Multilingual NLP pipeline. & \scriptsize{\url{https://github.com/aboSamoor/polyglot}}\\
+\texttt{deepwalk} & Representation extractor of social networks. & \scriptsize{\url{https://github.com/phanein/deepwalk}}.\\
+\texttt{word2embeddings} & Word embeddings trainer. & \scriptsize{ \url{http://bit.ly/embeddings}}\\
+\end{tabular}\\
 
 \section{Honors and Awards}
 \begin{tabular}{p{\twidtha} p{\twidthb}}
@@ -238,14 +268,6 @@ Recognition Pipeline}.\\ & \scriptsize{Rami Al-Rfou' and Steven Skiena. \textit{
    \\    \raggedleft{ \textsc{May 02}} & \textbf{The National Mathematics/Physics Olympiad}\\
             &\footnotesize{Scored the first in both Mathematics and Physics National Olympiads in the southern region of Jordan and 7\textsuperscript{th} nationwide.}
          \end{tabular}
-
-
-\section{Achievements}
-\begin{tabular}{p{\twidtha}p{\twidthb}}
-\raggedleft{\textsc{Oct 09} } & Scored 830 out of 900 in the GRE\textsuperscript{{\textregistered}} \textsc{Computer Science Subject Test} (87\textsuperscript{th} percentile).\\
-\\ \raggedleft{\textsc{Feb 09} } & Received excellent mark for my graduation project, ``TCP performance over IEEE 802.11 wireless links''. During which I made a thorough review and simulation, using ns-2, to study the complexity and performance of proposed protocols in literature.\\
-\\ \raggedleft{\textsc{Jun 08} } & Ranked second in the National Technology Parade under the Open Theme for designing and implementing a low cost portable digital oscilloscope. The project was invited for the Parade's exhibition.\\ & \\
-\end{tabular}
 
 
 \section{Voluntary Work}
@@ -286,7 +308,9 @@ Hobbies &
 $\bullet$ Hiking \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,
 $\bullet$ Cooking
 \\
-Programming & Proficient in programming in C/C++, Python, MATLAB and Assembly (x86, HC11, PIC16).
+Programming & Python, C/C++.
+\\
+Scientific Software & Theano, Scikits-learn, NLTK, Numpy, IPython, Pandas.
 \\
 Computer Skills & Experienced in building and maintaining networks infrastructure and managing Linux systems.
 \\ & 
