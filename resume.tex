@@ -19,6 +19,8 @@
 \usepackage{longtable}
 \usepackage{ifthen}
 \usepackage{hyperref}
+\usepackage{array}
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 
 %\usepackage{textcomp}
 %\usepackage{fontspec}
@@ -144,12 +146,10 @@
 %\noindent
 
 \begin{tabular}{p{\twidtha}p{\twidthb}}
- \raggedleft{\textsc{Sep 10 - \emph{present}}} & \textbf{PhD in Computer Science},
+ \raggedleft{\textsc{Sep 10 - May 15}} & \textbf{PhD in Computer Science},
 \emph{Stony Brook University}, Stony Brook, NY. \\
 
-& \normalsize \textsc{Gpa}: 3.98/4.0. Courses: Operating Systems, System
-Security, Algorithms, Programming Languages, Computational Geometry, Discrete
-Math, Natural Language Processing.  \\
+& \normalsize PhD thesis proposal: \textit{Polyglot: Massive multilingual Natural Language Processing Pipeline}. \\
  \multicolumn{2}{c}{}\ %this clears the space between two jobs
 \\
 
@@ -319,22 +319,12 @@ Computer Skills & Experienced in building and maintaining networks infrastructur
 
 \section{References}
 
-\cvdoublecolumn{\cvreference{Steven Skiena}
-    {Department of Computer Science}
-    {Stony Brook University}
-    {}
-    {Stony Brook, NY 11794}
-    {skiena@cs.stonybrook.edu}
-    {631-632-9026}
-    }
-    {\cvreference{Yejin Choi}
-    {Department of Computer Science}
-    {Stony Brook University}
-    {}
-    {Stony Brook, NY 11794}
-    {ychoi@cs.stonybrook.edu}
-    {631-632-8457}
-    }
-
+\begin{tabular}{lllHH}
+\textbf{Steven Skiena}& \textbf{Yejin Choi} & \textbf{Leon Bottou} & \textbf{Jay Ponte} & \textbf{Amarnag Subramanya}\\
+Department of Computer Science & Department of Computer Science & Microsoft Research& Google Research&Google Research\\
+Stony Brook University &University of Washington& 641 Avenue of Americas& 1600 Amphitheatre Pkwy& 1600 Amphitheatre Pkwy\\
+Stony Brook, NY 11794 &Seattle, WA 98195& New York, NY 10011& Mountain View, CA 94043 & Mountain View, CA 94043 \\
+\emailsymbol~\url{skiena@cs.stonybrook.edu} &\emailsymbol~\url{yejin@cs.washington.edu}&\emailsymbol~\url{leonbo@microsoft.com}& \emailsymbol~\url{jay.ponte@gmail.com} & \emailsymbol~\url{asubram@google.com}\\
+\end{tabular}
 
 \end{document}
